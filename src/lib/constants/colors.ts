@@ -1,6 +1,9 @@
 import { ColorTheme } from "@/lib/constants/cookies";
 
 const LIGHT_THEME_COLORS = {
+  primary: {
+    500: "oklch(69.89% 0.2 42.67)",
+  },
   neutral: {
     0: "oklch(100% 0 0)",
     50: "oklch(97.59% 0.003 264.54)",
@@ -18,6 +21,9 @@ const LIGHT_THEME_COLORS = {
 } as const;
 
 const DARK_THEME_COLORS = {
+  primary: {
+    500: "oklch(69.89% 0.2 42.67)",
+  },
   neutral: {
     0: "oklch(0% 0 0)",
     50: "oklch(20.81% 0.015 261.6)",

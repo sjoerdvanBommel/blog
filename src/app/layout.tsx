@@ -28,12 +28,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={GeistSans.className}
+      className={`${GeistSans.className} bg-neutral-50 text-neutral-900`}
       style={COLOR_CSS_VARIABLES[theme]}
     >
-      <body className="h-dvh">
+      <body className="h-dvh flex flex-col">
         <Header initialTheme={theme} />
-        <main>{children}</main>
+        <main className="flex justify-center max-w-[1200px] flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

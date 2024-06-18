@@ -35,13 +35,11 @@ export function Header({ initialTheme }: HeaderProps) {
   }
 
   return (
-    <header className="h-24 px-10 bg-neutral-200 flex items-center justify-center">
+    <header className="h-24 px-10 flex items-center justify-center bg-neutral-50">
       <div className="max-w-[1200px] flex flex-1 items-center justify-between">
-        <h1 className="text-3xl font-bold text-neutral-900">
-          Threeveloper Blog
-        </h1>
+        <h1 className="text-3xl font-bold">Sjoerd van Bommel</h1>
         <button
-          className="text-neutral-1000 w-11 h-11 grid place-content-center"
+          className="w-11 h-11 grid place-content-center"
           onClick={handleThemeChange}
         >
           {theme === "dark" ? <Sun /> : <Moon />}
