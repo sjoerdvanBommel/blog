@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="relative h-[488px]">
       <FooterBackground />
-      Thanks for passing by!
+      <div className="relative z-[2]">Footer content</div>
     </footer>
   );
 }

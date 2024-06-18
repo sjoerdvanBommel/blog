@@ -61,7 +61,7 @@ export default function FooterBackground() {
           cy={cy}
           r={circleDiameter / 2}
           className={
-            "fill-neutral-200 hover:fill-primary-500 transition-[fill,r] duration-1000 hover:duration-0 delay-200 hover:delay-0 ease-in-out hover:[r:20]"
+            "fill-neutral-200/30 hover:fill-primary-500/50 transition-[fill,r] duration-1000 hover:duration-0 delay-200 hover:delay-0 ease-in-out hover:[r:20]"
           }
           transform={`translate(${circleMovementX} ${circleMovementY})`}
         />
@@ -69,7 +69,7 @@ export default function FooterBackground() {
     });
 
   return (
-    <svg ref={svgRef} className="w-full absolute h-full opacity-50">
+    <svg ref={svgRef} className="w-full absolute top-0 h-full z-[1]">
       {circles}
     </svg>
   );
