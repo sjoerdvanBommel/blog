@@ -32,6 +32,10 @@ export function Header({ initialTheme }: HeaderProps) {
         document.documentElement.style.setProperty(key, value);
       }
     );
+
+    // Add theme class for tailwind dark: selectors
+    document.documentElement.classList.remove(theme);
+    document.documentElement.classList.add(newTheme);
   }
 
   return (

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.className} bg-neutral-50 text-neutral-900`}
+      className={`${GeistSans.className} bg-neutral-50 text-neutral-900 ${theme}`}
       style={COLOR_CSS_VARIABLES[theme]}
     >
       <body className="h-dvh flex flex-col">
