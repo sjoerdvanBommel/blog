@@ -8,8 +8,10 @@ import {
   DEFAULT_COLOR_THEME,
 } from "@/lib/constants/colors";
 import { ColorTheme, THEME_COOKIE_NAME } from "@/lib/constants/cookies";
-import { GeistSans } from "geist/font/sans";
+import { Nunito } from "next/font/google";
 import { cookies } from "next/headers";
+
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Threeveloper Blog",
@@ -28,12 +30,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.className} bg-neutral-50 text-neutral-900 ${theme}`}
+      className={`${nunito.className} bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-900 ${theme}`}
       style={COLOR_CSS_VARIABLES[theme]}
     >
       <body className="h-dvh flex flex-col">
         <Header initialTheme={theme} />
-        <main className="flex justify-center max-w-[1200px] flex-1">
+        <main className="flex justify-center m-auto max-w-[1200px] w-full flex-1">
           {children}
         </main>
         <Footer />
