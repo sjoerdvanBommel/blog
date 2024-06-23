@@ -8,6 +8,7 @@ import {
 } from "@/lib/constants/colors";
 import { ColorTheme, THEME_COOKIE_NAME } from "@/lib/constants/cookies";
 import Cookie from "js-cookie";
+import Link from "next/link";
 import { useState } from "react";
 
 export type HeaderProps = {
@@ -39,11 +40,18 @@ export function Header({ initialTheme }: HeaderProps) {
   }
 
   return (
-    <header className="h-24 px-10 flex items-center justify-center bg-neutral-50">
+    <header className="min-h-24 fixed left-0 right-0 bg-neutral-50 px-10 flex items-center justify-center z-10">
       <div className="max-w-[1200px] flex flex-1 items-center justify-between">
-        <h1 className="text-3xl font-bold">Sjoerd van Bommel</h1>
+        <Link className="text-3xl font-bold mr-auto" href="/">
+          <VisuallyHidden>Go to homepage</VisuallyHidden>
+          Sjoerd van Bommel
+        </Link>
+
+        <nav className="text-xl flex gap-4">
+          <Link href="/about-me">About me</Link>
+        </nav>
         <button
-          className="w-11 h-11 grid place-content-center"
+          className="w-11 h-11 grid place-content-center ml-4"
           onClick={handleThemeChange}
         >
           {theme === "dark" ? <Sun /> : <Moon />}

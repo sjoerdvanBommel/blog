@@ -3,11 +3,13 @@ import "./globals.css";
 
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { MotionConfig } from "@/components/motion-config/motion-config";
 import {
   COLOR_CSS_VARIABLES,
   DEFAULT_COLOR_THEME,
 } from "@/lib/constants/colors";
 import { ColorTheme, THEME_COOKIE_NAME } from "@/lib/constants/cookies";
+import "@/lib/shims/react";
 import { Nunito } from "next/font/google";
 import { cookies } from "next/headers";
 
@@ -16,6 +18,10 @@ const nunito = Nunito({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Threeveloper Blog",
   description: "An interactive blog about frontend and 3D web development",
+};
+
+const globalCssVars = {
+  "--footer-height": "488px",
 };
 
 export default function RootLayout({
@@ -30,15 +36,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.className} bg-gradient-to-b from-neutral-50 to-neutral-100 text-neutral-900 ${theme}`}
-      style={COLOR_CSS_VARIABLES[theme]}
+      className={nunito.className}
+      style={{ ...COLOR_CSS_VARIABLES[theme], ...globalCssVars }}
     >
-      <body className="h-dvh flex flex-col">
-        <Header initialTheme={theme} />
-        <main className="flex justify-center m-auto max-w-[1200px] w-full flex-1">
-          {children}
-        </main>
-        <Footer />
+      <body
+        className={`h-dvh flex flex-col overflow-x-hidden text-neutral-900 ${theme}`}
+      >
+        <MotionConfig>
+          <div
+            id="bg"
+            className="bg-gradient-to-b from-neutral-50 to-neutral-100 fixed inset-0 -z-50"
+          />
+          <Header initialTheme={theme} />
+          <main className="grid grid-cols-[1fr,min(1200px,100%),1fr] [&>*]:[grid-column:2] items-start w-full flex-1 [&>*]:pt-24">
+            {children}
+          </main>
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );

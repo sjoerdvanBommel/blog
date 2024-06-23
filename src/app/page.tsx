@@ -1,40 +1,32 @@
-"use client";
+import { Heading } from "@/components/heading";
+import { Post } from "@/components/post/post";
 
-import { AnimatedDotMap } from "@/components/animated-dot-map";
-import { motion } from "framer-motion";
+const latestPosts = [
+  {
+    title: "Post 1",
+    content:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, impedit! Ratione accusamus ab ullam vero, fuga sint iure praesentium aspernatur animi non, ducimus dolorem voluptatibus impedit unde, et eaque nisi.",
+    url: "https://blog.logrocket.com/wp-content/uploads/2024/05/using-path-aliases-cleaner-react-typescript-imports.png",
+    alt: "TypeScript logo, Blog thumbnail",
+  },
+  {
+    title: "Post 2",
+    content:
+      "Lorem Ratione accusamus ab ullam vero, fuga sint iure praesentium aspernatur animi non, ducimus dolorem voluptatibus impedit unde, et eaque nisi. lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, impedit!",
+    url: "https://blog.logrocket.com/wp-content/uploads/2024/05/using-path-aliases-cleaner-react-typescript-imports.png",
+    alt: "TypeScript logo, Blog thumbnail",
+  },
+];
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      <div>
-        <motion.h2
-          className="text-[8rem] relative font-extrabold"
-          initial={{ top: 40, opacity: 0 }}
-          animate={{ top: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
-        >
-          <span className="relative">
-            Hey there!
-            <svg
-              className="absolute bottom-[2.65rem] right-[0.28rem]"
-              width={24}
-              height={24}
-            >
-              <circle r={12} className="fill-primary-500" cx={12} cy={12} />
-            </svg>
-          </span>
-        </motion.h2>
-        <motion.h3
-          className="text-[2rem] relative font-extrabold"
-          initial={{ top: 40, opacity: 0 }}
-          animate={{ top: 0, opacity: 1 }}
-          transition={{ delay: 1.8, duration: 0.8, ease: "easeOut" }}
-        >
-          I&apos;m Sjoerd, a frontend developer.
-        </motion.h3>
+    <div className="grid grid-cols-3">
+      <div className="col-span-2">
+        <Heading level={2}>Latest posts</Heading>
+        {latestPosts.map((post) => (
+          <Post key={post.title} post={post} />
+        ))}
       </div>
-
-      <AnimatedDotMap />
     </div>
   );
 }

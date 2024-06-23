@@ -8,7 +8,10 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: COLORS_TAILWIND,
+    colors: {
+      ...COLORS_TAILWIND,
+      transparent: "transparent",
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
