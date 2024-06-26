@@ -34,14 +34,14 @@ export default function FooterBackground() {
           r={circleDiameter / 2}
           className={
             // Several extra group-hover classes are added to prevent transition when switching between dark and light mode
-            "hover:fill-primary-500/80 dark:hover:fill-primary-500/40 group-hover:transition-[fill] group-hover:duration-1000 group-hover:hover:duration-0 group-hover:delay-200 group-hover:hover:delay-0 ease-in-out"
+            "group-hover:transition-[fill] group-hover:duration-1000 group-hover:hover:duration-0 group-hover:delay-200 group-hover:hover:delay-0 ease-in-out"
           }
         />
       );
     });
 
   return (
-    <svg className="w-full absolute top-0 h-full z-[1] fill-neutral-300 dark:fill-neutral-200/30 group">
+    <svg className="w-full absolute top-0 h-full z-[1] fill-neutral-300 dark:fill-neutral-400/30 group hover:[&>circle]:fill-primary-500/80 dark:hover:[&>circle]:fill-primary-500/40">
       {circles}
     </svg>
   );

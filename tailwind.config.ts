@@ -18,6 +18,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        ["xl-layered"]: `
+            0.3px 0.5px 0.9px hsl(214deg 16% 9% / 0.01),
+            1.2px 2px 3.4px hsl(214deg 16% 9% / 0.11),
+            2.5px 4px 7px -0.1px hsl(214deg 16% 9% / 0.22),
+            5px 8.1px 14.1px -0.1px hsl(214deg 16% 9% / 0.32)
+        `,
+      },
     },
   },
   darkMode: "selector",

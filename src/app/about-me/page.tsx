@@ -5,7 +5,7 @@ import { cssVar } from "@/lib/constants/colors";
 import { LayoutGroup, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function AboutMePage() {
   const [delayOver, setDelayOver] = useState(false);
 
   useEffect(() => {

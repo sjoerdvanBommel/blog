@@ -43,12 +43,9 @@ export default function RootLayout({
         className={`h-dvh flex flex-col overflow-x-hidden text-neutral-900 ${theme}`}
       >
         <MotionConfig>
-          <div
-            id="bg"
-            className="bg-gradient-to-b from-neutral-50 to-neutral-100 fixed inset-0 -z-50"
-          />
+          <div id="bg" className="bg-neutral-100 fixed inset-0 -z-50" />
           <Header initialTheme={theme} />
-          <main className="grid grid-cols-[1fr,min(1200px,100%),1fr] [&>*]:[grid-column:2] items-start w-full flex-1 [&>*]:pt-24">
+          <main className="grid md:grid-cols-[1fr,min(1200px,100%),1fr] md:[&>*]:[grid-column:2] content-start w-full flex-1 [&>:first-child]:mt-24 px-8 sm:px-4">
             {children}
           </main>
           <Footer />

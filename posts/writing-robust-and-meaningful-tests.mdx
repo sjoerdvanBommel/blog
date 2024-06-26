@@ -1,0 +1,33 @@
+---
+title: Writing Robust and Meaningful Unit Tests
+description: |
+  It might be tempting to mock all dependencies when writing a unit test.
+  But if you do, then is your test really validating the working of your code?
+  And will it withstand some refactoring?
+  Writing good unit tests is hard, but extremely valuable.
+  Let's dive into some examples.
+thumbnailLanguage: javascript
+thumbnailCode: |
+  import { codeToHtml } from 'shiki'
+
+  const code = 'const a = 1' // input code
+  const html = await codeToHtml(code, {
+    lang: 'javascript',
+    theme: 'vitesse-dark'
+  })
+
+  console.log(html) // highlighted html string
+publishedOn: "2024-06-26T12:00:00+0200"
+---
+
+This is a list in markdown:
+
+- One
+- Two
+
+<p>p tag</p>
+
+```js
+const a = 1;
+const b = 2;
+```

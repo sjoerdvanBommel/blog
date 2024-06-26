@@ -9,6 +9,7 @@ import {
 import { ColorTheme, THEME_COOKIE_NAME } from "@/lib/constants/cookies";
 import Cookie from "js-cookie";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export type HeaderProps = {
@@ -17,6 +18,8 @@ export type HeaderProps = {
 
 export function Header({ initialTheme }: HeaderProps) {
   const [theme, setTheme] = useState<ColorTheme>(initialTheme);
+
+  const pathname = usePathname();
 
   function handleThemeChange() {
     const newTheme = theme === "dark" ? "light" : DEFAULT_COLOR_THEME;
@@ -40,18 +43,24 @@ export function Header({ initialTheme }: HeaderProps) {
   }
 
   return (
-    <header className="min-h-24 fixed left-0 right-0 bg-neutral-50 px-10 flex items-center justify-center z-10">
+    <header
+      className={`min-h-24 fixed left-0 right-0 bg-neutral-100 px-10 flex items-center justify-center ${
+        pathname === "/about-me" ? "" : "z-10"
+      }`}
+    >
       <div className="max-w-[1200px] flex flex-1 items-center justify-between">
         <Link className="text-3xl font-bold mr-auto" href="/">
           <VisuallyHidden>Go to homepage</VisuallyHidden>
           Sjoerd van Bommel
         </Link>
 
-        <nav className="text-xl flex gap-4">
-          <Link href="/about-me">About me</Link>
+        <nav className="text-lg flex gap-4">
+          <Link href="/about-me" className="p-4">
+            About me
+          </Link>
         </nav>
         <button
-          className="w-11 h-11 grid place-content-center ml-4"
+          className="w-16 h-16 grid place-content-center p-4 ml-8"
           onClick={handleThemeChange}
         >
           {theme === "dark" ? <Sun /> : <Moon />}
